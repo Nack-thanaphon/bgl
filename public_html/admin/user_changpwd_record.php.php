@@ -8,7 +8,7 @@ $pass_chk = md5($now_password);
 
 if($password1 != ""){
 $user_sql = "select * from user where username = '$sess_username'";
-$user_result =  mysql_db_query($db,$user_sql);
+$user_result =  mysqli_db_query($db,$user_sql);
 $user_row = mysqli_fetch_array($user_result) ;
 	$username = $user_row['username'];
 	$password = $user_row['password'];
@@ -19,7 +19,7 @@ $user_row = mysqli_fetch_array($user_result) ;
 	} else {
 		$pwd_new = md5($password1);
 		$sql_pwd = "update user set password = '$pwd_new' where username = '$sess_username'";
-		$result_pwd = mysql_db_query($db,$sql_pwd);
+		$result_pwd = mysqli_db_query($db,$sql_pwd);
 			if ($result_pwd) {
 			/* send mail */
 			$strTo = "$email";

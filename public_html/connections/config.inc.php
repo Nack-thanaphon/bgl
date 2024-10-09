@@ -1,4 +1,11 @@
-<?
+<?php
+
+define('BASE_URL', 'https://bgl.contactus.work', true);
+
+
+
+
+
 
 $host = "localhost";
 $user_name = "hongrutai";
@@ -6,8 +13,13 @@ $pass_word = "bglgems";
 $db = "BGL";
 
 //mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
-$link = mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
-mysqli_query("set NAMES utf8");
+$link = mysqli_connect($host, $user_name, $pass_word) or die("NO HOST");
+mysqli_query($link, "set NAMES utf8");
+
+
+
+
+
 
 
 /*
@@ -25,4 +37,3 @@ $db = "bgl_2011";
 mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
 mysqli_query("set NAMES utf8");
 */
-?>

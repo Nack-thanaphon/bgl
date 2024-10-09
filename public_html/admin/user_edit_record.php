@@ -11,7 +11,7 @@ $phone = $_REQUEST['phone'];
 
 if ($first_name != "" and $last_name != "" and $email != "") {		
 	$sql = "update user set first_name='$first_name', last_name='$last_name', email='$email', phone='$phone' where user_id = '$user_id'";	
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=user_edit.php?Page_p='.$Page_p.'&user_id='.$user_id.'&message=success">');
 		} else {

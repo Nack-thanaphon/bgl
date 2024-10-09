@@ -40,7 +40,7 @@ if($sendmail = "y"){
 	
 if ($username != "" and $password != ""  and $first_name != "" and $last_name != "" and $email != "") {		
 	$sql_user = "select * from user where username = '$username'";
-	$result_user = mysql_db_query($db,$sql_user);
+	$result_user = mysqli_db_query($db,$sql_user);
 	$num = mysql_num_rows($result_user) ;
 		if ($num > 0) {
 			echo ('<meta http-equiv="refresh" content="0;URL=user_add.php?message=warning">');
@@ -48,12 +48,12 @@ if ($username != "" and $password != ""  and $first_name != "" and $last_name !=
 		} 
 		
 	$sql_max = "select max(user_id) from user";
-	$result_max = mysql_db_query($db,$sql_max);
+	$result_max = mysqli_db_query($db,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$user_id = $row_max[0]+1;
 	
 	$sql = "insert into user (user_id, username, password, first_name, last_name, email, phone, status, create_date) VALUES ('$user_id', '$username', '$md5pwd', '$first_name', '$last_name','$email','$phone','$status','$date_today')";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=user_add.php?message=success">');
 		} else {

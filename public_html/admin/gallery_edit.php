@@ -127,7 +127,7 @@ if($message == "success"){
 }
 
 $sql = "select * from gallery where gallery_id = '$gallery_id'";
-$result = mysql_db_query ($db,$sql);
+$result = mysqli_db_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$gallery_id = $row['gallery_id'];
 	$gallery_name = $row['gallery_name'];

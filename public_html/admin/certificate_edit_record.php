@@ -51,7 +51,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 	
 	if ($fileupload != "") {
 		$del_sql = "update certificate set picture = '' where certificate_id = '$certificate_id'";
-		mysql_db_query($db,$del_sql);
+		mysqli_db_query($db,$del_sql);
 		if ($Photo_Del != "") {
 			$Photo_Del="../thumbnail_certificate/".$Photo_Del ;
 			if (file_exists($Photo_Del)) {
@@ -61,7 +61,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "gif") {
 				$img_sql = "select certificate_id from certificate where certificate_id = '$certificate_id'";
-				$img_result = mysql_db_query($db,$img_sql);
+				$img_result = mysqli_db_query($db,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$img_id = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -92,7 +92,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 					imagedestroy($new_img);
 					}
 					$img_update_sql = "update certificate set picture = '$fileupload_name' where certificate_id = '$certificate_id'";			
-					mysql_db_query($db,$img_update_sql);
+					mysqli_db_query($db,$img_update_sql);
 					unlink($fileupload);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');
@@ -100,7 +100,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 	}
 
 	$sql = "update certificate set type_certificate='$type_certificate', file_number='$file_number', date='$date', shape_and_cut='$shape_and_cut', weight='$weight', dimensions='$dimensions', color='$color', identification='$identification', magnification='$magnification', conment='$conment' where certificate_id = '$certificate_id'";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=certificate_edit.php?Page_p='.$Page_p.'&certificate_id='.$certificate_id.'&message=success">');
 		} else {

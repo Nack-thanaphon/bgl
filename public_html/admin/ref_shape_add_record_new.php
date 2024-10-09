@@ -15,7 +15,7 @@ $pic_type = $_FILES['pic']['type'];
 if($name != "" && $pic_size >0)
 {
 	$sql = "SELECT * FROM shapes WHERE name = '$name' ";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 	$num_rows = mysql_num_rows($result);
 	
 	if($num_rows>0)

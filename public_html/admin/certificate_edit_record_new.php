@@ -112,7 +112,7 @@ include "../connections/config.inc.php";
 	if($customer != "" && $file_number != "" && $weight != "" && $cer_date != "" && ($picture_size >0 || $picture_hidden!=""))
 	{
 		$sql = "SELECT * FROM certificate_new WHERE file_number = '$file_number' AND certificate_id != '$certificate_id' ";
-		$result = mysql_db_query($db,$sql);
+		$result = mysqli_db_query($db,$sql);
 		$num_rows = mysql_num_rows($result);
 		
 		if($num_rows>0)

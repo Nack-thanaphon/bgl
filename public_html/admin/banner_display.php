@@ -111,7 +111,7 @@ $file_del = $_REQUEST['file_del'];
 
 if ($type == "del"){
 	$del_sql="delete from banner where banner_id = '$banner_id'";
-	$result_del =  mysql_db_query($db,$del_sql);
+	$result_del =  mysqli_db_query($db,$del_sql);
 		if($file_del <> ""){
 			$file_del="../file_banner/".$file_del ;
 				if (file_exists($file_del)){
@@ -129,7 +129,7 @@ if ($type == "delall" and $dele != ""){
 	for($i=0;$i<count($dele);$i++){
 		$banner_id=$dele[$i];
 		$sql="select * from banner where banner_id = '$banner_id'";
-		$result = mysql_db_query($db,$sql) ;
+		$result = mysqli_db_query($db,$sql) ;
 		$row = mysqli_fetch_array($result);
 		$banner_picture = $row['banner_picture'] ;
 			if($banner_picture <> ""){
@@ -138,7 +138,7 @@ if ($type == "delall" and $dele != ""){
 				}
 			}
 		$del_sql="delete from banner where banner_id = '$banner_id'";
-		$result_del =  mysql_db_query($db,$del_sql);
+		$result_del =  mysqli_db_query($db,$del_sql);
 	}
 		if ($result_del) {
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
@@ -157,7 +157,7 @@ if ($type == "status"){
 		$status2 = "n";
 	}
 	$update_status = "update banner set banner_status = '$status2' where banner_id = '$banner_id'";
-	$status_result = mysql_db_query($db,$update_status);
+	$status_result = mysqli_db_query($db,$update_status);
 		if ($status_result) {
 			echo('<div class="message success"><p>แก้ไขสถานะเรียบร้อยแล้ว</p></div>');
 		} else {
@@ -189,7 +189,7 @@ $Page_p=1;
 $Prev_Page = $Page_p-1;
 $Next_Page = $Page_p+1;
 
-$result=mysql_db_query($db,$sql) ;
+$result=mysqli_db_query($db,$sql) ;
 $Page_start = ($Per_Page*$Page_p)-$Per_Page;
 $Num_Rows = mysql_num_rows($result);
 				
@@ -205,7 +205,7 @@ $Num_Pages = (int)$Num_Pages;
  if(($Page_p>$Num_Pages) || ($Page_p<0))
 print "";
 $sql = "select * from banner order by banner_id desc LIMIT $Page_start , $Per_Page" ;	
-$result = mysql_db_query($db,$sql);
+$result = mysqli_db_query($db,$sql);
 	while($row = mysqli_fetch_array($result)){
 	$banner_id = $row['banner_id'];
 	$banner_name = $row['banner_name'];
@@ -239,8 +239,7 @@ $result = mysql_db_query($db,$sql);
             <input name="type" type="hidden" id="type" value="delall" />
         </div>
 		<div class="pagination right">
-<?
-if($Prev_Page)
+<?php if($Prev_Page)
 	echo " <a href='$PHP_SELF?Page_p=$Prev_Page'>&laquo;</a> ";
 	for($i=1; $i<$Num_Pages; $i++){
 		if($i != $Page_p)

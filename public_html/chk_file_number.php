@@ -1,13 +1,11 @@
-<?
-session_start();
+<?php session_start();
 $file_number=$_REQUEST['file_number'];
 $weight=$_REQUEST['weight'];
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?
-	include "../connections/config.inc.php";
+<?php 	include "../connections/config.inc.php";
 	$sql_chk = "select file_number,weight from certificate where file_number = '$file_number'";
-	$result_chk = mysql_db_query($db,$sql_chk);
+	$result_chk = mysqli_db_query($db,$sql_chk);
 	$rs_chk = mysqli_fetch_array($result_chk);
 		if($rs_chk){
 			if($weight == $rs_chk['weight']){
@@ -20,14 +18,12 @@ $weight=$_REQUEST['weight'];
 				alert(" Weight ไม่ถูกต้อง");
 				history.back();
 			</script>
-<?
-			}
+<?php 			}
 		}else{
 ?>
 		<script language="javascript">
             alert("File Number ไม่ถูกต้อง");
             history.back();
         </script>
-<?
-		}
+<?php 		}
 ?>
