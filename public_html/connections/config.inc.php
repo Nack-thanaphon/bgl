@@ -2,11 +2,6 @@
 
 define('BASE_URL', 'https://bgl.contactus.work', true);
 
-
-
-
-
-
 $host = "localhost";
 $user_name = "aree";
 $pass_word = "Ak@072039";

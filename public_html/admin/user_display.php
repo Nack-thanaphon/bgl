@@ -115,7 +115,7 @@ if($type == "status"){
 		$status2="n";
 	}
 	$update_status = "update user set status = '$status2' where user_id = '$user_id'";
-	$status_result = mysqli_db_query($db,$update_status);
+	$status_result = mysqli_query($db,$update_status);
 		if ($status_result) {
 			echo('<div class="message success"><p>แก้ไขสถานะเรียบร้อยแล้ว</p></div>');
 		} else {
@@ -125,7 +125,7 @@ if($type == "status"){
 
 if($type == "resetpass"){
 	$user_sql = "select * from user where user_id = '$user_id' ";
-	$user_result =  mysqli_db_query($db,$user_sql);
+	$user_result =  mysqli_query($db,$user_sql);
 	$user_row = mysqli_fetch_array($user_result) ;
 		$user_id = $user_row['user_id'];
 		$username = $user_row['username'];
@@ -142,7 +142,7 @@ if($type == "resetpass"){
 	$pwd_new = md5($pass);
 	
 	$sql_pwd = "update user set password = '$pwd_new' where user_id = '$user_id' ";
-	$result_pwd = mysqli_db_query($db,$sql_pwd);
+	$result_pwd = mysqli_query($db,$sql_pwd);
 		if($result_pwd){
 			echo('<div class="message success"><p>ตั้งค่ารหัสผ่านใหม่เรียบร้อยแล้วค่ะ</p></div>');
 		} else {
@@ -172,7 +172,7 @@ if($type == "resetpass"){
 
 if($type == "del"){
 	$del_sql="delete from user where user_id = '$user_id'";
-	$result_del =  mysqli_db_query($db,$del_sql);
+	$result_del =  mysqli_query($db,$del_sql);
 		if($result_del){
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
 		} else {
@@ -184,7 +184,7 @@ if($type == "delall" and $dele != ""){
 	for($i=0;$i<count($dele);$i++){
 		$user_id = $dele[$i];
 		$del_sql = "delete from user where user_id = '$user_id'";
-		$result_del =  mysqli_db_query($db,$del_sql);
+		$result_del =  mysqli_query($db,$del_sql);
 	}
 		if($result_del){
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
@@ -224,7 +224,7 @@ $Page_p=1;
 $Prev_Page = $Page_p-1;
 $Next_Page = $Page_p+1;
 
-$result=mysqli_db_query($db,$sql) ;
+$result=mysqli_query($db,$sql) ;
 $Page_start = ($Per_Page*$Page_p)-$Per_Page;
 $Num_Rows = mysql_num_rows($result);
 				
@@ -240,7 +240,7 @@ $Num_Pages = (int)$Num_Pages;
  if(($Page_p>$Num_Pages) || ($Page_p<0))
 print "";
 $sql = "select * from user where user_id != '1' order by user_id desc LIMIT $Page_start , $Per_Page" ;	
-$result = mysqli_db_query($db,$sql);
+$result = mysqli_query($link,$sql);
 	while($row = mysqli_fetch_array($result)){
 	$user_id = $row['user_id'];
 	$username = $row['username'];

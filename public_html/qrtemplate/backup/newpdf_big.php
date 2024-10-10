@@ -17,7 +17,7 @@ $certificate_id2=$_REQUEST['certificate_id'];
 $sql="select certificate_id, certificate_order,type_certificate,file_number,DATE_FORMAT(date,'%D %M %Y') as date,
 shape_and_cut,weight,dimensions,color,identification,magnification,picture,conment,user_id from  certificate where certificate_id='$certificate_id2'";
 
-$result=mysqli_db_query($db,$sql);
+$result=mysqli_query($link,$sql);
 $rs=mysqli_fetch_array($result);
 $certificate_id=$rs[certificate_id];
 $file_number=$rs[file_number];

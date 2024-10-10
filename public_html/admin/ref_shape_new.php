@@ -213,7 +213,7 @@
 		$name = $_REQUEST['name'];
 		$picture_del = $_REQUEST['picture_del'];
 		$del_sql="delete from shapes where name = '$name'";
-		$result_del =  mysqli_db_query($db,$del_sql);
+		$result_del =  mysqli_query($db,$del_sql);
 			if($picture_del <> ""){
 				$picture_del = "../pic_shape/".$picture_del ;
 					if (file_exists($picture_del)){
@@ -229,7 +229,7 @@
 	}
 
 	$sql = "select * from shapes";
-	$result = mysqli_db_query($db,$sql);
+	$result = mysqli_query($link,$sql);
 	$num_rows = mysql_num_rows($result);
 
 ?>

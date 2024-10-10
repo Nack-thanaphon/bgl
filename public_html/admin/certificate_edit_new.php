@@ -252,7 +252,7 @@ if($message == "success"){
 	echo('<div class="message info"><p>โปรดกรอกข้อมูลในช่องที่มีเครื่องหมาย * ให้ครบ</p></div>');
 }
 	$sql = "select * from certificate_new where certificate_id = '$certificate_id'";
-	$result = mysqli_db_query ($db,$sql);
+	$result = mysqli_query($link,$sql);
 	$row = mysqli_fetch_array($result);
 	$certificate_id = $row['certificate_id'];
 	$certificate_order = $row['certificate_order'];
@@ -419,8 +419,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM shapes ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 												$chk_shape = ($row->name==$shape) ? "selected='selected'" : "";	
 													echo "<option value='$row->name' $chk_shape>$row->name</option>";
 												}
@@ -437,8 +437,8 @@ if($message == "success"){
                                             <option value="" >เลือก</option>
 											<?php
 												$sql = "SELECT * FROM cuts ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													$chk_cut = ($row->name==$cut) ? "selected='selected'" : "";	
 													echo "<option value='$row->name' $chk_cut>$row->name</option>";
 												}
@@ -457,8 +457,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM colors ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													$chk_color = ($row->name==$color) ? "selected='selected'" : "";	
 													echo "<option value='$row->name' $chk_color>$row->name</option>";
 												}
@@ -488,8 +488,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM drs ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) { 
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) { 
 													$chk_optic_character_detail = ($row->name==$optic_character_detail) ? "selected='selected'" : "";	
 													echo "<option value='$row->name' $chk_optic_character_detail>$row->name</option>";
 												}
@@ -560,8 +560,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM lws ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													$chk_fluorescent_lw = ($row->name==$fluorescent_lw) ? "selected='selected'" : "";	
 													echo "<option value='$row->name' $chk_fluorescent_lw>$row->name</option>";
 												}
@@ -572,8 +572,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM sws ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													$chk_fluorescent_sw = ($row->name==$fluorescent_sw) ? "selected='selected'" : "";
 													echo "<option value='$row->name' $chk_fluorescent_sw>$row->name</option>";
 												}
@@ -659,8 +659,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM shapes ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													$chk_shape_outline = ($row->name==$shape_outline) ? "selected='selected'" : "";	
 													echo "<option value='$row->name' $chk_shape_outline>$row->name</option>";
 												}
@@ -860,8 +860,8 @@ if($message == "success"){
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM comment_list ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>

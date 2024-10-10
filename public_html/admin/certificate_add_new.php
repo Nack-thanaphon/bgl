@@ -461,8 +461,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM shapes ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -478,8 +478,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM cuts ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -497,8 +497,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM colors ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -527,8 +527,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM drs ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -598,8 +598,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM lws ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -609,8 +609,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM sws ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -695,8 +695,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM shapes ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>
@@ -896,8 +896,8 @@
                                             <option value="">เลือก</option>
 											<?php
 												$sql = "SELECT * FROM comment_list ORDER BY name";
-												$result = mysqli_query($sql, $link);
-												while($row = mysql_fetch_object($result)) {
+												$result = mysqli_query($link,$sql);
+												while($row = mysqli_fetch_object($result)) {
 													echo "<option value='$row->name'>$row->name</option>";
 												}
 											?>

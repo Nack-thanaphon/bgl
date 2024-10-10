@@ -4,7 +4,10 @@ include "connections/config.inc.new.php";
 include "class.php";
 
 
-header('Location: ' . BASE_URL . '/2018');
+
+// Redirect to /2018 folder
+header('Location: /2018');
+exit;
 ?>
 <!DOCTYPE html>
 <html>

@@ -112,7 +112,7 @@ include "../connections/config.inc.php";
 	if($customer != "" && $file_number != "" && $weight != "" && $cer_date != "" && ($picture_size >0 || $picture_hidden!=""))
 	{
 		$sql = "SELECT * FROM certificate_new WHERE file_number = '$file_number' AND certificate_id != '$certificate_id' ";
-		$result = mysqli_db_query($db,$sql);
+		$result = mysqli_query($link,$sql);
 		$num_rows = mysql_num_rows($result);
 		
 		if($num_rows>0)
@@ -176,7 +176,7 @@ include "../connections/config.inc.php";
 						gemologist_update 	= '$gemologist_update',
 						gemologist_update_date = '$gemologist_update_date'
 					where certificate_id 		= '$certificate_id' ";
-		$qry = mysqli_query($sql, $link);
+		$qry = mysqli_query($link,$sql);
 		if ($qry)
 		{
 			// อัพรูป

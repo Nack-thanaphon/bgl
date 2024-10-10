@@ -20,7 +20,7 @@ if( ($pic_size ==0 )&& ($_POST['pic_hidden']!="") )
 if($name != "" && ($pic_size >0 || $_POST['pic_hidden']!="") )
 {
 	/*$sql = "SELECT * FROM shapes WHERE name = '$name' ";
-	$result = mysqli_db_query($db,$sql);
+	$result = mysqli_query($link,$sql);
 	$num_rows = mysql_num_rows($result);
 	
 	if($num_rows>0)
@@ -31,7 +31,7 @@ if($name != "" && ($pic_size >0 || $_POST['pic_hidden']!="") )
 
 	$sql = "UPDATE shapes SET  name = '$name', pic = '$pic_name' WHERE name = '$name'";
 	
-	$qry = mysqli_query($sql, $link);
+	$qry = mysqli_query($link,$sql);
 	if ($qry)
 	{
 		if ($pic != "") 

@@ -149,7 +149,7 @@ if($message == "success"){
 }
 
 $sql = "select * from user where user_id = '$user_id'";
-$result = mysqli_db_query ($db,$sql);
+$result = mysqli_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$user_id = $row['user_id'];
 	$username = $row['username'];

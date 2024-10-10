@@ -15,7 +15,7 @@ if ($lab_name != "") {
 	
 	if ($fileupload != "") {
 		$del_sql = "update lab set lab_file = '' where lab_id = '$lab_id'";
-		mysqli_db_query($db,$del_sql3);
+		mysqli_query($db,$del_sql3);
 		if ($file_del != "") {
 			$file_del="../file_lab/".$file_del ;
 			if (file_exists($file_del)) {
@@ -25,13 +25,13 @@ if ($lab_name != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "doc" or $ext == "docx" or $ext == "xls" or $ext == "pdf") {
 				$sql_id = "select lab_id from lab where lab_id = '$lab_id'";
-				$result_id = mysqli_db_query($db,$sql_id);
+				$result_id = mysqli_query($db,$sql_id);
 				$row_id = mysql_fetch_row($result_id) ;
 				$id = $row_id[0];
 				$fileupload_name = $row_id[0].".".$ext ;
 				copy($fileupload,"../file_lab/".$fileupload_name);
 					$img_update_sql = "update lab set lab_file = '$fileupload_name' where lab_id = '$lab_id'";			
-					mysqli_db_query($db,$img_update_sql);
+					mysqli_query($db,$img_update_sql);
 					unlink($fileupload);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขไฟล์ได้</p></div>');
@@ -39,7 +39,7 @@ if ($lab_name != "") {
 	}
 	
 	$sql = "update lab set lab_name = '$lab_name' where lab_id = '$lab_id'";	
-	$result = mysqli_db_query($db,$sql);
+	$result = mysqli_query($link,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=lab_edit.php?Page_p='.$Page_p.'&lab_id='.$lab_id.'&message=success">');
 		} else {
