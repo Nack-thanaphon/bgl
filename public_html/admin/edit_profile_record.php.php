@@ -9,7 +9,7 @@ $phone = $_REQUEST['phone'];
 
 if ($first_name != "" and $last_name != "" and $email != "") {		
 	$sql = "update user set first_name='$first_name', last_name='$last_name', email='$email', phone='$phone' where username = '$sess_username'";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=edit_profile.php?message=success">');
 		} else {

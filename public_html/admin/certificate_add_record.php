@@ -46,7 +46,7 @@ $fileupload_type = $_FILES['fileupload']['type'];
 
 if($file_number != "" and $weight != "" and $date != ""){
 	$sql_file_number = "select * from certificate where file_number = '$file_number'";
-	$result_file_number = mysql_db_query($db,$sql_file_number);
+	$result_file_number = mysqli_db_query($db,$sql_file_number);
 	$num = mysql_num_rows($result_file_number) ;
 		if ($num > 0) {
 			echo ('<meta http-equiv="refresh" content="0;URL=certificate_add.php?message=warning">');
@@ -54,12 +54,12 @@ if($file_number != "" and $weight != "" and $date != ""){
 		} 
 		
 	$sql_max = "select max(certificate_id) from certificate";
-	$result_max = mysql_db_query($db,$sql_max);
+	$result_max = mysqli_db_query($db,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$certificate_id = $row_max[0]+1;
 	
 	$sql = "insert into certificate (certificate_id, certificate_order, type_certificate, file_number, date, shape_and_cut, weight, dimensions, color, identification, magnification, conment) VALUES ('$certificate_id', '$certificate_id', '$type_certificate', '$file_number', '$date', '$shape_and_cut', '$weight', '$dimensions' , '$color', '$identification', '$magnification', '$conment')";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=certificate_add.php?message=success">');
 		} else {
@@ -70,7 +70,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "png" or $ext == "gif") {
 				$img_sql="select max(certificate_id) from certificate";
-				$img_result = mysql_db_query($db,$img_sql);
+				$img_result = mysqli_db_query($db,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$certificate_id_new = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -101,7 +101,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 						imagedestroy($new_img);
 					}
 				$img_sql_update="update certificate set picture = '$fileupload_name' where certificate_id = '$certificate_id_new'" ;
-				mysql_db_query($db,$img_sql_update);
+				mysqli_db_query($db,$img_sql_update);
 				unlink($fileupload);
 			}
 		}

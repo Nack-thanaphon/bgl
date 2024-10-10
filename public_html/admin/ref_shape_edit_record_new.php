@@ -20,7 +20,7 @@ if( ($pic_size ==0 )&& ($_POST['pic_hidden']!="") )
 if($name != "" && ($pic_size >0 || $_POST['pic_hidden']!="") )
 {
 	/*$sql = "SELECT * FROM shapes WHERE name = '$name' ";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 	$num_rows = mysql_num_rows($result);
 	
 	if($num_rows>0)

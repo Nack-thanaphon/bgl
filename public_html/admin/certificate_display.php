@@ -132,7 +132,7 @@ if ($type == "del"){
 	$certificate_id = $_REQUEST['certificate_id'];
 	$picture_del = $_REQUEST['picture_del'];
 	$del_sql="delete from certificate where certificate_id = '$certificate_id'";
-	$result_del =  mysql_db_query($db,$del_sql);
+	$result_del =  mysqli_db_query($db,$del_sql);
 		if($picture_del <> ""){
 			$picture_del = "../thumbnail_certificate/".$picture_del ;
 				if (file_exists($picture_del)){
@@ -151,7 +151,7 @@ if ($type == "delall" and $dele != ""){
 	for($i=0;$i<count($dele);$i++){
 		$certificate_id=$dele[$i];
 		$sql="select * from certificate where certificate_id = '$certificate_id'";
-		$result=mysql_db_query($db,$sql) ;
+		$result=mysqli_db_query($db,$sql) ;
 		$row=mysqli_fetch_array($result);
 		$picture = $row['picture'] ;
 			if($picture <> ""){
@@ -160,7 +160,7 @@ if ($type == "delall" and $dele != ""){
 				}
 			}
 		$del_sql="delete from certificate where certificate_id = '$certificate_id'";
-		$result_del =  mysql_db_query($db,$del_sql);
+		$result_del =  mysqli_db_query($db,$del_sql);
 	}
 		if ($result_del) {
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
@@ -204,7 +204,7 @@ $Page_p=1;
 $Prev_Page = $Page_p-1;
 $Next_Page = $Page_p+1;
 
-$result=mysql_db_query($db,$sql) ;
+$result=mysqli_db_query($db,$sql) ;
 $Page_start = ($Per_Page*$Page_p)-$Per_Page;
 $Num_Rows = mysql_num_rows($result);
 				
@@ -220,7 +220,7 @@ $Num_Pages = (int)$Num_Pages;
  if(($Page_p>$Num_Pages) || ($Page_p<0))
 print "";
 $sql = "select * from certificate where file_number='$file_number_search' order by certificate_id desc LIMIT $Page_start , $Per_Page" ;		
-$result = mysql_db_query($db,$sql);
+$result = mysqli_db_query($db,$sql);
 	while($row = mysqli_fetch_array($result)){
 	$certificate_id = $row['certificate_id'];
 	$certificate_order = $row['certificate_order'];
@@ -283,7 +283,7 @@ $result = mysql_db_query($db,$sql);
 <?php
 $no = 1;
 $sql="select * from certificate order by certificate_id desc LIMIT 10" ;
-$result = mysql_db_query($db,$sql);
+$result = mysqli_db_query($db,$sql);
 	while($row = mysqli_fetch_array($result)){
 	$certificate_id = $row['certificate_id'];
 	$certificate_order = $row['certificate_order'];
@@ -350,8 +350,7 @@ $result = mysql_db_query($db,$sql);
             <input name="type" type="hidden" id="type" value="delall" />
         </div>
 		<div class="pagination right">
-<?
-if($Prev_Page)
+<?php if($Prev_Page)
 	echo " <a href='$PHP_SELF?Page_p=$Prev_Page'>&laquo;</a> ";
 	for($i=1; $i<$Num_Pages; $i++){
 		if($i != $Page_p)

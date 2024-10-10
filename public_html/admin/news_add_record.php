@@ -51,18 +51,18 @@ $fileupload_type3 = $_FILES['fileupload3']['type'];
 
 if ($news_title != "" and $news_descriptions != "" and $fileupload != "") {
 	$sql_max = "select max(news_id) from news";
-	$result_max = mysql_db_query($db,$sql_max);
+	$result_max = mysqli_db_query($db,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$news_id = $row_max[0]+1;
 	
 	$sql = "insert into news (news_id, news_order, news_type, news_title, news_descriptions, news_date, news_url, news_detail_format, news_detail_descriptions, news_status, news_index) VALUES ('$news_id', '$news_id', '$news_type', '$news_title', '$news_descriptions', '$date', '$news_url', '$news_detail_format', '$news_detail_descriptions', 'y', 'n')";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		
 		if ($fileupload != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "png" or $ext == "gif") {
 				$img_sql="select max(news_id) from news";
-				$img_result = mysql_db_query($db,$img_sql);
+				$img_result = mysqli_db_query($db,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$news_id_new = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -93,7 +93,7 @@ if ($news_title != "" and $news_descriptions != "" and $fileupload != "") {
 						imagedestroy($new_img);
 					}
 				$img_sql_update="update news set news_picture = '$fileupload_name' where news_id = '$news_id_new'" ;
-				mysql_db_query($db,$img_sql_update);
+				mysqli_db_query($db,$img_sql_update);
 				unlink($fileupload);
 			}
 		}
@@ -102,7 +102,7 @@ if ($news_title != "" and $news_descriptions != "" and $fileupload != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name2)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "png" or $ext == "gif") {
 				$img_sql2="select max(news_id) from news";
-				$img_result2 = mysql_db_query($db,$img_sql2);
+				$img_result2 = mysqli_db_query($db,$img_sql2);
 				$img_row2 = mysql_fetch_row($img_result2) ;
 				$news_id_new2 = $img_row2[0];
 				$fileupload_name2 = $img_row2[0].".".$ext ;
@@ -133,7 +133,7 @@ if ($news_title != "" and $news_descriptions != "" and $fileupload != "") {
 						imagedestroy($new_img);
 					}
 				$img_sql_update2="update news set news_detail_picture = '$fileupload_name' where news_id = '$news_id_new2'" ;
-				mysql_db_query($db,$img_sql_update2);
+				mysqli_db_query($db,$img_sql_update2);
 				unlink($fileupload2);
 			}
 		}
@@ -142,14 +142,14 @@ if ($news_title != "" and $news_descriptions != "" and $fileupload != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name3)));	
 			if ($ext == "doc" or $ext == "xls" or $ext == "pdf") {
 				$img_sql3="select max(news_id) from news";
-				$img_result3 = mysql_db_query($db,$img_sql3);
+				$img_result3 = mysqli_db_query($db,$img_sql3);
 				$img_row3 = mysql_fetch_row($img_result3) ;
 				$news_id_new3 = $img_row3[0];
 				$fileupload_name3 = $img_row3[0].".".$ext ;
 				copy($fileupload3,"../file_news/".$fileupload_name3);
 				
 				$img_sql_update3="update news set news_detail_file = '$fileupload_name3' where news_id = '$news_id_new3'" ;
-				mysql_db_query($db,$img_sql_update3);
+				mysqli_db_query($db,$img_sql_update3);
 				unlink($fileupload3);
 			}
 		}

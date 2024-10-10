@@ -10,24 +10,24 @@ $fileupload_type = $_FILES['fileupload']['type'];
 
 if ($lab_name != "" and $fileupload != "") {
 	$sql_max = "select max(lab_id) from lab";
-	$result_max = mysql_db_query($db,$sql_max);
+	$result_max = mysqli_db_query($db,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$lab_id = $row_max[0]+1;
 	
 	$sql = "insert into lab (lab_id, lab_name, lab_status) VALUES ('$lab_id', '$lab_name', 'y')";
-	$result = mysql_db_query($db,$sql);
+	$result = mysqli_db_query($db,$sql);
 		if ($fileupload != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "doc" or $ext == "docx" or $ext == "xls" or $ext == "pdf") {
 				$img_sql="select max(lab_id) from lab";
-				$img_result = mysql_db_query($db,$img_sql);
+				$img_result = mysqli_db_query($db,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$lab_id_new = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
 				copy($fileupload,"../file_lab/".$fileupload_name);
 				
 				$img_sql_update="update lab set lab_file = '$fileupload_name' where lab_id = '$lab_id_new'" ;
-				mysql_db_query($db,$img_sql_update);
+				mysqli_db_query($db,$img_sql_update);
 				unlink($fileupload);
 			}
 		}

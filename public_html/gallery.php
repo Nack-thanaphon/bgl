@@ -1,3 +1,7 @@
+<?php
+
+include "connections/config.inc.new.php";
+?>
 <!DOCTYPE html>
 <html>
 
@@ -158,7 +162,7 @@ $.ajax({
     dataType: 'json',
     success: function(data) {
         for (var i=0; i<data.length; i++) {
-            var row = $('<tr><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/gemstone/' + data[i].PDFGemCol1+ '" target="_blank">' + data[i].GemCol1+ '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/gemstone/' + data[i].PDFGemCol2+ '" target="_blank">' + data[i].GemCol2 + '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/gemstone/' + data[i].PDFGemCol3+ '" target="_blank">' + data[i].GemCol3 + '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/gemstone/' + data[i].PDFGemCol4+ '" target="_blank">' + data[i].GemCol4+ '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/gemstone/' + data[i].PDFGemCol5+ '" target="_blank">' + data[i].GemCol5 + '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/gemstone/' + data[i].PDFGemCol6+ '" target="_blank">' + data[i].GemCol6 + '</a></td></tr>');
+            var row = $('<tr><td><a href="<?= BASE_URL ?>/2018/documents/gemstone/' + data[i].PDFGemCol1+ '" target="_blank">' + data[i].GemCol1+ '</a></td><td><a href="<?= BASE_URL ?>/2018/documents/gemstone/' + data[i].PDFGemCol2+ '" target="_blank">' + data[i].GemCol2 + '</a></td><td><a href="<?= BASE_URL ?>/2018/documents/gemstone/' + data[i].PDFGemCol3+ '" target="_blank">' + data[i].GemCol3 + '</a></td><td><a href="<?= BASE_URL ?>/2018/documents/gemstone/' + data[i].PDFGemCol4+ '" target="_blank">' + data[i].GemCol4+ '</a></td><td><a href="<?= BASE_URL ?>/2018/documents/gemstone/' + data[i].PDFGemCol5+ '" target="_blank">' + data[i].GemCol5 + '</a></td><td><a href="<?= BASE_URL ?>/2018/documents/gemstone/' + data[i].PDFGemCol6+ '" target="_blank">' + data[i].GemCol6 + '</a></td></tr>');
             $('#myTable').append(row);
         }
     },

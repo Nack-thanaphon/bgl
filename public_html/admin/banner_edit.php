@@ -127,7 +127,7 @@ if($message == "success"){
 }
 
 $sql = "select * from banner where banner_id = '$banner_id'";
-$result = mysql_db_query ($db,$sql);
+$result = mysqli_db_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$banner_id = $row['banner_id'];
 	$banner_name = $row['banner_name'];

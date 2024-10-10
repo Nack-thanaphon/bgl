@@ -93,7 +93,7 @@
 	$cerTxt = $_REQUEST['cerTxt'];	
 	$cerTxt = trim($cerTxt, ',');	
 	$sql = "select * from certificate where certificate_id in($cerTxt) order by certificate_id desc";
-	$rs = mysql_db_query($db, $sql);	
+	$rs = mysqli_db_query($db, $sql);	
 	
 	$rowExcel = 1;	
 	while ($row = mysqli_fetch_array($rs)) {
@@ -103,7 +103,7 @@
 		
 		// create qr code
 		$filename = $PNG_TEMP_DIR.$row["file_number"].'.png';
-		QRcode::png('http://bgl.chanthaburi.buu.ac.th/MyPDF/'.$row["file_number"].'.pdf', $filename, $errorCorrectionLevel, $matrixPointSize, 2);
+		QRcode::png(BASE_URL.'/MyPDF/'.$row["file_number"].'.pdf', $filename, $errorCorrectionLevel, $matrixPointSize, 2);
 		
 		$worksheet->write($rowExcel, 0, $rowExcel, $text_data);
 		$worksheet->write($rowExcel, 1, cv($row["file_number"]), $text_data);

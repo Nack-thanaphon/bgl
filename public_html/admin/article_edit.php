@@ -127,7 +127,7 @@ if($message == "success"){
 }
 
 $sql = "select * from article where article_id = '$article_id'";
-$result = mysql_db_query ($db,$sql);
+$result = mysqli_db_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$article_id = $row['article_id'];
 	$article_name = $row['article_name'];
