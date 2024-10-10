@@ -177,7 +177,7 @@
 								
 								$datetime_today = date('Y-m-d H:i:s');
 								$sql = "select * from news_tbl where  `department_list` LIKE '%3%' and `news_title` LIKE '%IIJMAT%' and news_status = '1' and news_sticky = '0' and category_id != '1'and news_datetime_start <= '$datetime_today' and news_datetime_end >= '$datetime_today' order by `news_tbl`.`news_datetime_start` DESC LIMIT 0,8";
-								$result = mysqli_query($sql)or die("Invalid query: " . mysqli_connect_error());
+								$result = mysqli_query($link,$sql)or die("Invalid query: " . mysqli_connect_error());
 								
 								while($row = mysqli_fetch_array($result)){
 									
