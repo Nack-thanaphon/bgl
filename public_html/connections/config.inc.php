@@ -2,10 +2,18 @@
 
 define('BASE_URL', 'https://bgl.contactus.work', true);
 
+// $host = "localhost";
+// $user_name = "aree";
+// $pass_word = "Ak@072039";
+// $db = "BGL";
+
 $host = "localhost";
-$user_name = "aree";
-$pass_word = "Ak@072039";
-$db = "BGL";
+$user_name = "contactu_gbl";
+$pass_word = "FRpbtca3ABMtTBbjYqgx";
+$db = "contactu_gbl";
+
+
+
 
 //mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
 $link = mysqli_connect($host, $user_name, $pass_word) or die("NO HOST");

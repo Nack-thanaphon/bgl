@@ -1,7 +1,7 @@
 <?php
 
 include "connections/config.inc.new.php";
-include "class.php";
+
 
 ?>
 <!DOCTYPE html>
