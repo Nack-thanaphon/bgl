@@ -7,7 +7,7 @@
 	if (!empty($name)) {
 	
 		$sql = "select * from certificate where file_number like '%$name%' order by certificate_id desc";
-		$rs = mysqli_db_query($db, $sql);
+		$rs = mysqli_query($db, $sql);
 		
 		if (mysql_num_rows($rs) > 0) {
 			echo(' 

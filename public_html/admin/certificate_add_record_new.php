@@ -102,7 +102,7 @@ $picture_file = "P$file_number.$file_type";
 if($customer != "" && $file_number != "" && $weight != "" && $cer_date != "" && $picture_size >0)
 {
 	$sql = "SELECT * FROM certificate_new WHERE file_number = '$file_number' ";
-	$result = mysqli_db_query($db,$sql);
+	$result = mysqli_query($link,$sql);
 	$num_rows = mysql_num_rows($result);
 	
 	if($num_rows>0)
@@ -151,7 +151,7 @@ if($customer != "" && $file_number != "" && $weight != "" && $cer_date != "" && 
 					)
 				";
 	//echo $sql;
-	$qry = mysqli_query($sql, $link);
+	$qry = mysqli_query($link,$sql);
 	if ($qry)
 	{
 		if ($spectrum != "") 

@@ -154,7 +154,7 @@ if($message == "success"){
 	echo('<div class="message info"><p>โปรดกรอกข้อมูลในช่องที่มีเครื่องหมาย * ให้ครบ</p></div>');
 }
 $sql = "select * from certificate where certificate_id = '$certificate_id'";
-$result = mysqli_db_query ($db,$sql);
+$result = mysqli_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$certificate_id = $row['certificate_id'];
 	$certificate_order = $row['certificate_order'];

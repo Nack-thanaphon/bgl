@@ -116,7 +116,7 @@ if ($type == "del"){
 	$file_del = $_REQUEST['file_del'];
 	$picture_detail_del = $_REQUEST['picture_detail_del'];
 	$del_sql="delete from news where news_id = '$news_id'";
-	$result_del =  mysqli_db_query($db,$del_sql);
+	$result_del =  mysqli_query($db,$del_sql);
 		if($picture_del <> ""){
 			$picture_del="../thumbnail_news/".$picture_del ;
 				if (file_exists($picture_del)){
@@ -147,7 +147,7 @@ if ($type == "delall" and $dele != ""){
 	for($i=0;$i<count($dele);$i++){
 		$news_id=$dele[$i];
 		$sql="select * from news where news_id = '$news_id'";
-		$result=mysqli_db_query($db,$sql) ;
+		$result=mysqli_query($db,$sql) ;
 		$row=mysqli_fetch_array($result);
 		$news_picture = $row['news_picture'] ;
 		$news_detail_file = $row['news_detail_file'] ;
@@ -168,7 +168,7 @@ if ($type == "delall" and $dele != ""){
 				}
 			}
 		$del_sql="delete from news where news_id = '$news_id'";
-		$result_del =  mysqli_db_query($db,$del_sql);
+		$result_del =  mysqli_query($db,$del_sql);
 	}
 		if ($result_del) {
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
@@ -187,7 +187,7 @@ if ($type == "status"){
 		$status2 = "n";
 	}
 	$update_status = "update news set news_status = '$status2' where news_id = '$news_id'";
-	$status_result = mysqli_db_query($db,$update_status);
+	$status_result = mysqli_query($db,$update_status);
 		if ($status_result) {
 			echo('<div class="message success"><p>แก้ไขสถานะเรียบร้อยแล้ว</p></div>');
 		} else {
@@ -220,7 +220,7 @@ $Page_p=1;
 $Prev_Page = $Page_p-1;
 $Next_Page = $Page_p+1;
 
-$result=mysqli_db_query($db,$sql) ;
+$result=mysqli_query($db,$sql) ;
 $Page_start = ($Per_Page*$Page_p)-$Per_Page;
 $Num_Rows = mysql_num_rows($result);
 				
@@ -236,7 +236,7 @@ $Num_Pages = (int)$Num_Pages;
  if(($Page_p>$Num_Pages) || ($Page_p<0))
 print "";
 $sql = "select * from news where news_id order by news_id desc LIMIT $Page_start , $Per_Page" ;	
-$result = mysqli_db_query($db,$sql);
+$result = mysqli_query($link,$sql);
 	while($row = mysqli_fetch_array($result)){
 	$news_id = $row['news_id'];
 	$news_order = $row['news_order'];

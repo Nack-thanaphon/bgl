@@ -85,7 +85,7 @@ if ($sess_userid <> session_id() or $sess_username == "") {
 	include "../counter.php";
 
 	$sql_certificate = "select * from certificate where file_number = '$sess_username' ";
-	$result_certificate = mysqli_db_query($db, $sql_certificate);
+	$result_certificate = mysqli_query($db, $sql_certificate);
 	$row_certificate = mysqli_fetch_array($result_certificate);
 	$certificate_id = $row_certificate['certificate_id'];
 	$type_certificate = $row_certificate['type_certificate'];

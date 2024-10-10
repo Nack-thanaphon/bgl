@@ -111,7 +111,7 @@ $file_del = $_REQUEST['file_del'];
 
 if ($type == "del"){
 	$del_sql="delete from article where article_id = '$article_id'";
-	$result_del =  mysqli_db_query($db,$del_sql);
+	$result_del =  mysqli_query($db,$del_sql);
 		if($file_del <> ""){
 			$file_del="../file_article/".$file_del ;
 				if (file_exists($file_del)){
@@ -129,7 +129,7 @@ if ($type == "delall" and $dele != ""){
 	for($i=0;$i<count($dele);$i++){
 		$article_id=$dele[$i];
 		$sql="select * from article where article_id = '$article_id'";
-		$result = mysqli_db_query($db,$sql) ;
+		$result = mysqli_query($db,$sql) ;
 		$row = mysqli_fetch_array($result);
 		$article_file = $row['article_file'] ;
 			if($article_file <> ""){
@@ -138,7 +138,7 @@ if ($type == "delall" and $dele != ""){
 				}
 			}
 		$del_sql="delete from article where article_id = '$article_id'";
-		$result_del =  mysqli_db_query($db,$del_sql);
+		$result_del =  mysqli_query($db,$del_sql);
 	}
 		if ($result_del) {
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
@@ -157,7 +157,7 @@ if ($type == "status"){
 		$status2 = "n";
 	}
 	$update_status = "update article set article_status = '$status2' where article_id = '$article_id'";
-	$status_result = mysqli_db_query($db,$update_status);
+	$status_result = mysqli_query($db,$update_status);
 		if ($status_result) {
 			echo('<div class="message success"><p>แก้ไขสถานะเรียบร้อยแล้ว</p></div>');
 		} else {
@@ -189,7 +189,7 @@ $Page_p=1;
 $Prev_Page = $Page_p-1;
 $Next_Page = $Page_p+1;
 
-$result=mysqli_db_query($db,$sql) ;
+$result=mysqli_query($db,$sql) ;
 $Page_start = ($Per_Page*$Page_p)-$Per_Page;
 $Num_Rows = mysql_num_rows($result);
 				
@@ -205,7 +205,7 @@ $Num_Pages = (int)$Num_Pages;
  if(($Page_p>$Num_Pages) || ($Page_p<0))
 print "";
 $sql = "select * from article order by article_id asc LIMIT $Page_start , $Per_Page" ;	
-$result = mysqli_db_query($db,$sql);
+$result = mysqli_query($link,$sql);
 	while($row = mysqli_fetch_array($result)){
 	$article_id = $row['article_id'];
 	$article_name = $row['article_name'];

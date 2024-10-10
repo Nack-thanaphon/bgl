@@ -15,7 +15,7 @@ if ($banner_name != "") {
 	
 	if ($fileupload != "") {
 		$del_sql = "update banner set banner_picture = '' where banner_id = '$banner_id'";
-		mysqli_db_query($db,$del_sql);
+		mysqli_query($db,$del_sql);
 		if ($Photo_Del != "") {
 			$Photo_Del="../file_banner/".$Photo_Del ;
 			if (file_exists($Photo_Del)) {
@@ -25,7 +25,7 @@ if ($banner_name != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "gif") {
 				$img_sql = "select banner_id from banner where banner_id = '$banner_id'";
-				$img_result = mysqli_db_query($db,$img_sql);
+				$img_result = mysqli_query($db,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$img_id = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -56,7 +56,7 @@ if ($banner_name != "") {
 					imagedestroy($new_img);
 					}
 					$img_update_sql = "update banner set banner_picture = '$fileupload_name' where banner_id = '$banner_id'";			
-					mysqli_db_query($db,$img_update_sql);
+					mysqli_query($db,$img_update_sql);
 					unlink($fileupload);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');
@@ -64,7 +64,7 @@ if ($banner_name != "") {
 	}
 	
 	$sql = "update banner set banner_name = '$banner_name' where banner_id = '$banner_id'";	
-	$result = mysqli_db_query($db,$sql);
+	$result = mysqli_query($link,$sql);
 		if ($result) {
 			echo ('<meta http-equiv="refresh" content="0;URL=banner_edit.php?Page_p='.$Page_p.'&banner_id='.$banner_id.'&message=success">');
 		} else {

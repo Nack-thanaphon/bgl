@@ -127,7 +127,7 @@ if($message == "success"){
 }
 
 $sql = "select * from lab where lab_id = '$lab_id'";
-$result = mysqli_db_query ($db,$sql);
+$result = mysqli_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$lab_id = $row['lab_id'];
 	$lab_name = $row['lab_name'];

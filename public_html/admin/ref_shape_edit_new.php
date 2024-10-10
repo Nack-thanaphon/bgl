@@ -235,7 +235,7 @@
 	$name = $_REQUEST['name'];
 	
 	$sql = "select * from shapes where name = '$name'";
-	$result = mysqli_db_query ($db,$sql);
+	$result = mysqli_query ($db,$sql);
 	$row = mysqli_fetch_array($result);
 	$name = $row['name'];
 	$pic = $row['pic'];

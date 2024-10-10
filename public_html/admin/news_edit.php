@@ -135,7 +135,7 @@ if($message == "success"){
 	echo('<div class="message info"><p>โปรดกรอกข้อมูลในช่องที่มีเครื่องหมาย * ให้ครบ</p></div>');
 }
 $sql = "select * from news where news_id = '$news_id'";
-$result = mysqli_db_query ($db,$sql);
+$result = mysqli_query ($db,$sql);
 $row = mysqli_fetch_array($result);
 	$news_id = $row['news_id'];
 	$news_order = $row['news_order'];

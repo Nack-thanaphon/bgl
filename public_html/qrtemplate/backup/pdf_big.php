@@ -13,7 +13,7 @@ $pdf=new FPDF();
 include "connections/config.inc.php";
 $certificate_id2=$_REQUEST['certificate_id'];
 $sql="select * from  certificate where certificate_id='$certificate_id2'";
-$result=mysqli_db_query($db,$sql);
+$result=mysqli_query($link,$sql);
 $rs=mysqli_fetch_array($result);
 $certificate_id=$rs[certificate_id];
 $file_number=$rs[file_number];
