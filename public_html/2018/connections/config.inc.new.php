@@ -1,11 +1,11 @@
 <?php
-$db = "BGL";
+
 $host = "localhost";
 $user = "aree";
 $password = "Ak@072039";
 
 // Create connection
-$link = mysqli_connect($host, $user, $password, $db);
+$link = mysqli_connect($host, $user, $password);
 
 // Check connection
 if (!$link) {
