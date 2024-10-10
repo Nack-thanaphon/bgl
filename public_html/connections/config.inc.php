@@ -1,12 +1,12 @@
 <?
 
 $host = "localhost";
-$user_name = "hongrutai";
-$pass_word = "bglgems";
+$user_name = "aree";
+$pass_word = "Ak@072039";
 $db = "BGL";
 
 //mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
-$link = mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
+$link = mysqli_connect($host , $user_name , $pass_word) or die ("NO HOST");
 mysqli_query("set NAMES utf8");
 
 

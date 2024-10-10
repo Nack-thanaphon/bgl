@@ -1,0 +1,28 @@
+[
+        {
+            "GemCol1": "Actinolite",
+            "PDFGemCol1": "info_actinolite.pdf",
+            "GemCol2": "Amber",
+            "PDFGemCol2": "info_actinolite2.pdf",
+            "GemCol3": "Andalusite",
+            "GemCol4": "Azurite",
+            "GemCol5": "Apatite",
+            "GemCol6": "Barite"
+        },
+        {
+            "GemCol1": "Beryl",
+            "GemCol2": "Benitoite",
+            "GemCol3": "Brazilianite",
+            "GemCol4": "Calcite",
+            "GemCol5": "Cassiterite",
+            "GemCol6": "Charoite"
+        },
+        {
+            "GemCol1": "Chrysoberyl",
+            "GemCol2": "Clinohumite",
+            "GemCol3": "Coral",
+            "GemCol4": "Corundum",
+            "GemCol5": "Danburite",
+            "GemCol6": "Diamond"
+        }
+    ]

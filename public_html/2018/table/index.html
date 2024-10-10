@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<style>
+table {
+    width: 50%;
+}
+th {
+    background: #f1f1f1;
+    font-weight: bold;
+    padding: 6px;
+}
+td {
+    background: #f9f9f9;
+    padding: 6px;
+}
+</style>
+	
+<body>
+	
+	
+<div class="table_2">
+<table id="myTable">
+	
+</table>
+</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$.ajax({
+    url: 'data.json',
+    dataType: 'json',
+    success: function(data) {
+        for (var i=0; i<data.length; i++) {
+            var row = $('<tr><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/' + data[i].PDFGemCol1+ '" target="_blank">' + data[i].GemCol1+ '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/' + data[i].PDFGemCol2+ '" target="_blank">' + data[i].GemCol2 + '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/' + data[i].PDFGemCol3+ '" target="_blank">' + data[i].GemCol3 + '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/' + data[i].PDFGemCol4+ '" target="_blank">' + data[i].GemCol4+ '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/' + data[i].PDFGemCol5+ '" target="_blank">' + data[i].GemCol5 + '</a></td><td><a href="http://bgl.chanthaburi.buu.ac.th/2018/documents/' + data[i].PDFGemCol6+ '" target="_blank">' + data[i].GemCol6 + '</a></td></tr>');
+            $('#myTable').append(row);
+        }
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+        alert('Error: ' + textStatus + ' - ' + errorThrown);
+    }
+});
+</script>
+	
+	
+	
+</body>
+</html>
