@@ -7,7 +7,7 @@
 $host = "localhost";
 $user_name = "Aree";
 $pass_word = "Ak@072039";
-$db = "gbl";
+$db = "BGL";
 
 // Create connection
 $link = mysqli_connect($host, $user, $password, $db);
