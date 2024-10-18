@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'https://bgl.contactus.work', true);
+define('BASE_URL', 'http://10.201.1.10/~bgl/', true);
 
 // $host = "localhost";
 // $user_name = "aree";
