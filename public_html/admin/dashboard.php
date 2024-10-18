@@ -283,7 +283,7 @@ list($years, $month, $d) = explode("-", $date_today);
                     { 
 						$d2=date("d",$value);
 						$sql_visit="select  *  from counter where date='$d2' and   month='$month' and years='$years' group by ip_visit" ;
-						$result_visit=mysqli_query($db,$sql_visit) ;
+						$result_visit=mysqli_query($link,$sql_visit) ;
 						$ip=mysql_num_rows($result_visit);
 						$sum+=mysql_num_rows($result_visit);
                          printf ("<th height='35' style='text-align:center;'>%s</th>",$ip); 

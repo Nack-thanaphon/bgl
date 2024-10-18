@@ -10,7 +10,7 @@ $fileupload_type = $_FILES['fileupload']['type'];
 
 if ($banner_name != "" and $fileupload != "") {
 	$sql_max = "select max(banner_id) from banner";
-	$result_max = mysqli_query($db,$sql_max);
+	$result_max = mysqli_query($link,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$banner_id = $row_max[0]+1;
 	
@@ -20,7 +20,7 @@ if ($banner_name != "" and $fileupload != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "png" or $ext == "gif") {
 				$img_sql="select max(banner_id) from banner";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$banner_id_new = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -51,7 +51,7 @@ if ($banner_name != "" and $fileupload != "") {
 						imagedestroy($new_img);
 					}
 				$img_sql_update="update banner set banner_picture = '$fileupload_name' where banner_id = '$banner_id_new'" ;
-				mysqli_query($db,$img_sql_update);
+				mysqli_query($link,$img_sql_update);
 				unlink($fileupload);
 			}
 		}

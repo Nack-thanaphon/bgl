@@ -58,7 +58,7 @@ if($news_title != "" and $news_descriptions != "") {
 	
 	if ($fileupload != "") {
 		$del_sql = "update news set news_picture = '' where news_id = '$news_id'";
-		mysqli_query($db,$del_sql);
+		mysqli_query($link,$del_sql);
 		if ($Photo_Del != "") {
 			$Photo_Del="../thumbnail_news/".$Photo_Del ;
 			if (file_exists($Photo_Del)) {
@@ -68,7 +68,7 @@ if($news_title != "" and $news_descriptions != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "gif") {
 				$img_sql = "select news_id from news where news_id = '$news_id'";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$img_id = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -99,7 +99,7 @@ if($news_title != "" and $news_descriptions != "") {
 					imagedestroy($new_img);
 					}
 					$img_update_sql = "update news set news_picture = '$fileupload_name' where news_id = '$news_id'";			
-					mysqli_query($db,$img_update_sql);
+					mysqli_query($link,$img_update_sql);
 					unlink($fileupload);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');
@@ -108,7 +108,7 @@ if($news_title != "" and $news_descriptions != "") {
 
 	if ($fileupload2 != "") {
 		$del_sql2 = "update news set news_detail_picture = '' where news_id = '$news_id'";
-		mysqli_query($db,$del_sql2);
+		mysqli_query($link,$del_sql2);
 		if ($Photo_Del2 != "") {
 			$Photo_Del2="../thumbnail_news/".$Photo_Del2 ;
 			if (file_exists($Photo_Del2)) {
@@ -118,7 +118,7 @@ if($news_title != "" and $news_descriptions != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name2)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "gif") {
 				$img_sql = "select news_id from news where news_id = '$news_id'";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$img_id = $img_row[0];
 				$fileupload_name2 = $img_row[0].".".$ext ;
@@ -149,7 +149,7 @@ if($news_title != "" and $news_descriptions != "") {
 					imagedestroy($new_img);
 					}
 					$img_update_sql2 = "update news set news_detail_picture = '$fileupload_name2' where news_id = '$news_id'";			
-					mysqli_query($db,$img_update_sql2);
+					mysqli_query($link,$img_update_sql2);
 					unlink($fileupload2);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');
@@ -158,7 +158,7 @@ if($news_title != "" and $news_descriptions != "") {
 
 	if ($fileupload3 != "") {
 		$del_sql3 = "update news set news_detail_file = '' where news_id = '$news_id'";
-		mysqli_query($db,$del_sql3);
+		mysqli_query($link,$del_sql3);
 		if ($Photo_Del3 != "") {
 			$Photo_Del3="../file_news/".$Photo_Del3 ;
 			if (file_exists($Photo_Del3)) {
@@ -168,13 +168,13 @@ if($news_title != "" and $news_descriptions != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name3)));	
 			if ($ext == "doc" or $ext == "xls" or $ext == "pdf") {
 				$img_sql = "select news_id from news where news_id = '$news_id'";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$img_id = $img_row[0];
 				$fileupload_name3 = $img_row[0].".".$ext ;
 				copy($fileupload3,"../file_news/".$fileupload_name3);
 					$img_update_sql3 = "update news set news_detail_file = '$fileupload_name3' where news_id = '$news_id'";			
-					mysqli_query($db,$img_update_sql3);
+					mysqli_query($link,$img_update_sql3);
 					unlink($fileupload3);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');

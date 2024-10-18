@@ -127,7 +127,7 @@ if ($type == "del"){
 	$certificate_id = $_REQUEST['certificate_id'];
 	$picture_del = $_REQUEST['picture_del'];
 	$del_sql="delete from certificate_new where certificate_id = '$certificate_id'";
-	$result_del =  mysqli_query($db,$del_sql);
+	$result_del =  mysqli_query($link,$del_sql);
 		if($picture_del <> ""){
 			$picture_del = "../thumbnail_certificate/".$picture_del ;
 				if (file_exists($picture_del)){
@@ -146,7 +146,7 @@ if ($type == "delall" and $dele != ""){
 	for($i=0;$i<count($dele);$i++){
 		$certificate_id=$dele[$i];
 		$sql="select * from certificate_new where certificate_id = '$certificate_id'";
-		$result=mysqli_query($db,$sql) ;
+		$result=mysqli_query($link,$sql) ;
 		$row=mysqli_fetch_array($result);
 		$picture = $row['picture'] ;
 			if($picture <> ""){
@@ -155,7 +155,7 @@ if ($type == "delall" and $dele != ""){
 				}
 			}
 		$del_sql="delete from certificate_new where certificate_id = '$certificate_id'";
-		$result_del =  mysqli_query($db,$del_sql);
+		$result_del =  mysqli_query($link,$del_sql);
 	}
 		if ($result_del) {
 			echo('<div class="message success"><p>ลบข้อมูลเรียบร้อยค่ะ</p></div>');
@@ -194,7 +194,7 @@ $Page_p=1;
 $Prev_Page = $Page_p-1;
 $Next_Page = $Page_p+1;
 
-$result=mysqli_query($db,$sql) ;
+$result=mysqli_query($link,$sql) ;
 $Page_start = ($Per_Page*$Page_p)-$Per_Page;
 $Num_Rows = mysql_num_rows($result);
 				

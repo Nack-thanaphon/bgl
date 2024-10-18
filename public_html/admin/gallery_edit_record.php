@@ -16,7 +16,7 @@ if ($gallery_name != "") {
 	
 	if ($fileupload != "") {
 		$del_sql = "update gallery set gallery_picture = '' where gallery_id = '$gallery_id'";
-		mysqli_query($db,$del_sql);
+		mysqli_query($link,$del_sql);
 		if ($Photo_Del != "") {
 			$Photo_Del="../file_gallery/".$Photo_Del ;
 			if (file_exists($Photo_Del)) {
@@ -26,7 +26,7 @@ if ($gallery_name != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "gif") {
 				$img_sql = "select gallery_id from gallery where gallery_id = '$gallery_id'";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$img_id = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -57,7 +57,7 @@ if ($gallery_name != "") {
 					imagedestroy($new_img);
 					}
 					$img_update_sql = "update gallery set gallery_picture = '$fileupload_name' where gallery_id = '$gallery_id'";			
-					mysqli_query($db,$img_update_sql);
+					mysqli_query($link,$img_update_sql);
 					unlink($fileupload);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');

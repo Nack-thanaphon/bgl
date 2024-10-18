@@ -12,7 +12,7 @@ $fileupload_type = $_FILES['fileupload']['type'];
 
 if ($gallery_name != "" and $fileupload != "") {
 	$sql_max = "select max(gallery_id) from gallery";
-	$result_max = mysqli_query($db,$sql_max);
+	$result_max = mysqli_query($link,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$gallery_id = $row_max[0]+1;
 	
@@ -22,7 +22,7 @@ if ($gallery_name != "" and $fileupload != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "png" or $ext == "gif") {
 				$img_sql="select max(gallery_id) from gallery";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$gallery_id_new = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -53,7 +53,7 @@ if ($gallery_name != "" and $fileupload != "") {
 						imagedestroy($new_img);
 					}
 				$img_sql_update="update gallery set gallery_picture = '$fileupload_name' where gallery_id = '$gallery_id_new'" ;
-				mysqli_query($db,$img_sql_update);
+				mysqli_query($link,$img_sql_update);
 				unlink($fileupload);
 			}
 		}

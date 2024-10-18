@@ -93,7 +93,7 @@
 	$cerTxt = $_REQUEST['cerTxt'];	
 	$cerTxt = trim($cerTxt, ',');	
 	$sql = "select * from certificate where certificate_id in($cerTxt) order by certificate_id desc";
-	$rs = mysqli_query($db, $sql);	
+	$rs = mysqli_query($link, $sql);	
 	
 	$rowExcel = 1;	
 	while ($row = mysqli_fetch_array($rs)) {

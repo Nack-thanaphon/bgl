@@ -5,7 +5,7 @@ $weight=$_REQUEST['weight'];
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php 	include "../connections/config.inc.php";
 	$sql_chk = "select file_number,weight from certificate where file_number = '$file_number'";
-	$result_chk = mysqli_query($db,$sql_chk);
+	$result_chk = mysqli_query($link,$sql_chk);
 	$rs_chk = mysqli_fetch_array($result_chk);
 		if($rs_chk){
 			if($weight == $rs_chk['weight']){

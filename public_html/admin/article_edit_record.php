@@ -15,7 +15,7 @@ if ($article_name != "") {
 	
 	if ($fileupload != "") {
 		$del_sql = "update article set article_file = '' where article_id = '$article_id'";
-		mysqli_query($db,$del_sql3);
+		mysqli_query($link,$del_sql3);
 		if ($file_del != "") {
 			$file_del="../file_article/".$file_del ;
 			if (file_exists($file_del)) {
@@ -25,13 +25,13 @@ if ($article_name != "") {
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "doc" or $ext == "xls" or $ext == "pdf") {
 				$sql_id = "select article_id from article where article_id = '$article_id'";
-				$result_id = mysqli_query($db,$sql_id);
+				$result_id = mysqli_query($link,$sql_id);
 				$row_id = mysql_fetch_row($result_id) ;
 				$id = $row_id[0];
 				$fileupload_name = $row_id[0].".".$ext ;
 				copy($fileupload,"../file_article/".$fileupload_name);
 					$img_update_sql = "update article set article_file = '$fileupload_name' where article_id = '$article_id'";			
-					mysqli_query($db,$img_update_sql);
+					mysqli_query($link,$img_update_sql);
 					unlink($fileupload);
 				} else {
 					echo ('<div class="message errormsg"><p>เกิดข้อผิดพลาด ไม่สามารถแก้ไขรูปภาพได้</p></div>');

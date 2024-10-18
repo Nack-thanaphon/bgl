@@ -40,7 +40,7 @@ if($sendmail = "y"){
 	
 if ($username != "" and $password != ""  and $first_name != "" and $last_name != "" and $email != "") {		
 	$sql_user = "select * from user where username = '$username'";
-	$result_user = mysqli_query($db,$sql_user);
+	$result_user = mysqli_query($link,$sql_user);
 	$num = mysql_num_rows($result_user) ;
 		if ($num > 0) {
 			echo ('<meta http-equiv="refresh" content="0;URL=user_add.php?message=warning">');
@@ -48,7 +48,7 @@ if ($username != "" and $password != ""  and $first_name != "" and $last_name !=
 		} 
 		
 	$sql_max = "select max(user_id) from user";
-	$result_max = mysqli_query($db,$sql_max);
+	$result_max = mysqli_query($link,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$user_id = $row_max[0]+1;
 	

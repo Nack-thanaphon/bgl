@@ -46,7 +46,7 @@ $fileupload_type = $_FILES['fileupload']['type'];
 
 if($file_number != "" and $weight != "" and $date != ""){
 	$sql_file_number = "select * from certificate where file_number = '$file_number'";
-	$result_file_number = mysqli_query($db,$sql_file_number);
+	$result_file_number = mysqli_query($link,$sql_file_number);
 	$num = mysql_num_rows($result_file_number) ;
 		if ($num > 0) {
 			echo ('<meta http-equiv="refresh" content="0;URL=certificate_add.php?message=warning">');
@@ -54,7 +54,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 		} 
 		
 	$sql_max = "select max(certificate_id) from certificate";
-	$result_max = mysqli_query($db,$sql_max);
+	$result_max = mysqli_query($link,$sql_max);
 	$row_max = mysql_fetch_row($result_max);
 	$certificate_id = $row_max[0]+1;
 	
@@ -70,7 +70,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 		$ext = strtolower(end(explode('.', $fileupload_name)));	
 			if ($ext == "jpg" or $ext == "jpeg" or $ext == "png" or $ext == "gif") {
 				$img_sql="select max(certificate_id) from certificate";
-				$img_result = mysqli_query($db,$img_sql);
+				$img_result = mysqli_query($link,$img_sql);
 				$img_row = mysql_fetch_row($img_result) ;
 				$certificate_id_new = $img_row[0];
 				$fileupload_name = $img_row[0].".".$ext ;
@@ -101,7 +101,7 @@ if($file_number != "" and $weight != "" and $date != ""){
 						imagedestroy($new_img);
 					}
 				$img_sql_update="update certificate set picture = '$fileupload_name' where certificate_id = '$certificate_id_new'" ;
-				mysqli_query($db,$img_sql_update);
+				mysqli_query($link,$img_sql_update);
 				unlink($fileupload);
 			}
 		}
