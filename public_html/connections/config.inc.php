@@ -8,9 +8,9 @@ define('BASE_URL', 'http://10.201.1.10/~bgl/', true);
 // $db = "BGL";
 
 $host = "localhost";
-$user_name = "contactu_gbl";
-$pass_word = "FRpbtca3ABMtTBbjYqgx";
-$db = "contactu_gbl";
+$user_name = "Aree";
+$pass_word = "Ak@072039";
+$db = "gbl";
 
 
 
