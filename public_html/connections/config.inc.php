@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', 'http://10.201.1.10/~bgl/', true);
+define('BASE_URL', 'http://10.201.1.10/~bgl/');
 
 $host = "localhost";
 $user = "aree";
@@ -12,18 +12,9 @@ $db = "BGL";
 // $pass = "FRpbtca3ABMtTBbjYqgx";
 // $db = "contactu_gbl";
 
-
-
-
 //mysqli_connect ($host , $user , $pass) or die ("NO HOST");
 $link = mysqli_connect($host, $user, $pass, $db) or die("NO HOST");
 mysqli_query($link, "set NAMES utf8");
-
-
-
-
-
-
 
 /*
 $host = "localhost";
