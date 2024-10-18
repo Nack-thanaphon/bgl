@@ -10,11 +10,11 @@ $pass_word = "Ak@072039";
 $db = "BGL";
 
 // Create connection
-$link = mysqli_connect($host, $user, $password, $db);
+$link = mysqli_connect($host, $user_name, $pass_word, $db);
 
 // Check connection
 if (!$link) {
-	die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Set character set to UTF-8
