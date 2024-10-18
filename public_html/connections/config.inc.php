@@ -3,20 +3,20 @@
 define('BASE_URL', 'http://10.201.1.10/~bgl/', true);
 
 $host = "localhost";
-$user_name = "aree";
-$pass_word = "Ak@072039";
+$user = "aree";
+$pass = "Ak@072039";
 $db = "BGL";
 
 // $host = "localhost";
-// $user_name = "contactu_gbl";
-// $pass_word = "FRpbtca3ABMtTBbjYqgx";
+// $user = "contactu_gbl";
+// $pass = "FRpbtca3ABMtTBbjYqgx";
 // $db = "contactu_gbl";
 
 
 
 
-//mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
-$link = mysqli_connect($host, $user_name, $pass_word) or die("NO HOST");
+//mysqli_connect ($host , $user , $pass) or die ("NO HOST");
+$link = mysqli_connect($host, $user, $pass, $db) or die("NO HOST");
 mysqli_query($link, "set NAMES utf8");
 
 
@@ -27,16 +27,16 @@ mysqli_query($link, "set NAMES utf8");
 
 /*
 $host = "localhost";
-$user_name = "atwebsite_bgl";
-$pass_word = "bgl_2011";
+$user = "atwebsite_bgl";
+$pass = "bgl_2011";
 $db = "atwebsite_bgl";
-mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
+mysqli_connect ($host , $user , $pass) or die ("NO HOST");
 mysqli_query($link,"set NAMES utf8");
 
 $host = "localhost";
-$user_name = "root";
-$pass_word = "QWERasdf1234";
+$user = "root";
+$pass = "QWERasdf1234";
 $db = "bgl_2011";
-mysqli_connect ($host , $user_name , $pass_word) or die ("NO HOST");
+mysqli_connect ($host , $user , $pass) or die ("NO HOST");
 mysqli_query($link,"set NAMES utf8");
 */
