@@ -3,7 +3,7 @@
 include "connections/config.inc.new.php";
 
 // Redirect to /2018 folder
-header('Location: ~bgl/2018');
+header('Location: /2018');
 exit;
 ?>
 <!DOCTYPE html>
