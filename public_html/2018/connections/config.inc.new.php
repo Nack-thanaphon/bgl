@@ -1,20 +1,20 @@
 <?php
-// $db = "news";
-// $host = "localhost";
-// $user = "aree";
-// $password = "Ak@072039";
-
+$db = "news";
 $host = "localhost";
-$user_name = "Aree";
-$pass_word = "Ak@072039";
-$db = "BGL";
+$user = "aree";
+$password = "Ak@072039";
+
+// $host = "localhost";
+// $user = "contactu_news";
+// $db = "contactu_news";
+// $password = "vQfcrgj2s8xemHhjFxTC";
 
 // Create connection
-$link = mysqli_connect($host, $user_name, $pass_word, $db);
+$link = mysqli_connect($host, $user, $password, $db);
 
 // Check connection
 if (!$link) {
-    die("Connection failed: " . mysqli_connect_error());
+	die("Connection failed: " . mysqli_connect_error());
 }
 
 // Set character set to UTF-8

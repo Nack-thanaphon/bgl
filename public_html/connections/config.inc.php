@@ -2,15 +2,15 @@
 
 define('BASE_URL', 'http://10.201.1.10/~bgl/', true);
 
-// $host = "localhost";
-// $user_name = "aree";
-// $pass_word = "Ak@072039";
-// $db = "BGL";
-
 $host = "localhost";
-$user_name = "Aree";
+$user_name = "aree";
 $pass_word = "Ak@072039";
-$db = "gbl";
+$db = "BGL";
+
+// $host = "localhost";
+// $user_name = "contactu_gbl";
+// $pass_word = "FRpbtca3ABMtTBbjYqgx";
+// $db = "contactu_gbl";
 
 
 
