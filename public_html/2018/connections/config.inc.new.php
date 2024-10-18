@@ -5,9 +5,9 @@
 // $password = "Ak@072039";
 
 $host = "localhost";
-$user = "contactu_news";
-$db = "contactu_news";
-$password = "vQfcrgj2s8xemHhjFxTC";
+$user_name = "Aree";
+$pass_word = "Ak@072039";
+$db = "gbl";
 
 // Create connection
 $link = mysqli_connect($host, $user, $password, $db);
